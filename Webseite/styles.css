@@ -1,0 +1,26 @@
+/* Farben:
+Schwarz: #1D1D1F
+Weiß: #FBFBFD
+Grau: #707070
+Blau:  #0066CC
+*/
+
+body{
+    background-color: #1D1D1F;
+}
+
+.card-text{
+    font-family:'Lucida Handwriting';
+    color: #1D1D1F;
+}
+
+.card-body{
+    background-color: #FBFBFD;
+}
+
+/* align center card */
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
