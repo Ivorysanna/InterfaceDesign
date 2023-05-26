@@ -35,3 +35,56 @@ body{
     align-items: center;
     height: 100%;
 }
+
+.navPic{
+    width: 110%;
+    height: 110%;
+    transform: translate(-5%, -5%);
+    object-fit: cover;
+}
+
+.posRelative{
+    position: relative;
+}
+
+.posAbsolute{
+    position: absolute;
+}
+
+.navText{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.arrow{
+    width: 1rem;
+    left: calc(50% - 0.5rem);
+    bottom: 3px;
+}
+
+.arrow:hover{
+    cursor: pointer;
+}
+
+.arrow.rotated{
+    transform: rotate(180deg);
+}
+
+.arrowButton{
+    left: calc(50% - 2.3rem);
+    bottom: 0.2rem;
+    width: 3.5rem;
+    height: 1.3rem;
+    padding: 0.3rem;
+    border: 1px solid red;
+    background: none;    
+}
+
+.topNav{
+    top: -50px;
+}
+
+.topNav.expanded{
+    top: 0;
+}
