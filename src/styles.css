@@ -58,23 +58,27 @@ body{
 }
 
 .arrow{
-    width: 1rem;
-    left: calc(50% - 0.5rem);
+    width: 2.5rem;
+    left: calc(50% - 1.25rem);
     bottom: 3px;
+    transition: transform 0.27s ease-in-out;
 }
 
 .arrow.rotated{
     transform: rotate(180deg);
+    
 }
 
 .arrowButton{
-    left: calc(50% - 2.3rem);
-    bottom: 0.2rem;
-    width: 3.5rem;
-    height: 1.3rem;
-    padding: 0.3rem;
-    border: 1px solid red;
-    background: none;    
+    left: calc(50% - 6.25rem);
+    bottom: 1.2rem;
+    width: 12.5rem;
+    height: 3.0rem;
+    padding: 0.4rem;
+    /* border: 1px solid red; */
+    border:none;
+    background: none;
+    border-radius: 0.9rem; 
 }
 
 .arrowButton:hover{
@@ -86,10 +90,10 @@ body{
 }
 
 .topNav{
-    top: -50px;
-    transition: top 0.3s ease-in-out;
+    top: -140px;
+    transition: top 0.27s ease-in-out;
 }
 
 .topNav.expanded{
-    top: 0;
+    top: -60px;
 }
