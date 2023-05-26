@@ -63,10 +63,6 @@ body{
     bottom: 3px;
 }
 
-.arrow:hover{
-    cursor: pointer;
-}
-
 .arrow.rotated{
     transform: rotate(180deg);
 }
@@ -81,8 +77,17 @@ body{
     background: none;    
 }
 
+.arrowButton:hover{
+    cursor: pointer;
+}
+
+.arrowButton:focus{
+    outline: none;
+}
+
 .topNav{
     top: -50px;
+    transition: top 0.3s ease-in-out;
 }
 
 .topNav.expanded{
