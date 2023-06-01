@@ -21,4 +21,4 @@ function setProgress(progress: number): void {
   }
   
   // Example usage: set the progress to 50%
-  setProgress(100);
+  setProgress(20);
