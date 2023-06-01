@@ -10,3 +10,15 @@ arrowButton?.addEventListener("click", () => {
     arrowIcon?.classList.toggle("rotated");
     topNavElement?.classList.toggle("expanded");
 });
+
+
+// Function to update the progress bar
+function setProgress(progress: number): void {
+    const progressBar: HTMLElement | null = document.querySelector('.progress-bar');
+    if (progressBar) {
+      progressBar.style.width = progress + '%';
+    }
+  }
+  
+  // Example usage: set the progress to 50%
+  setProgress(100);
