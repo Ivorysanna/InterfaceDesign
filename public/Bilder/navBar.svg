@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="231.521" height="34" viewBox="0 0 231.521 34">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="217.414" height="37" viewBox="0 0 217.414 37">
   <defs>
     <clipPath id="clip-path">
-      <rect x="17" y="38" width="31.814" height="33" fill="none"/>
+      <rect x="17" y="35" width="31.814" height="36" fill="none"/>
     </clipPath>
     <clipPath id="clip-path-2">
-      <rect y="37" width="71.814" height="34" fill="none"/>
+      <rect y="34" width="56.814" height="37" fill="none"/>
     </clipPath>
   </defs>
-  <g id="Gruppe_3" data-name="Gruppe 3" transform="translate(-160.293 409)" style="isolation: isolate">
+  <g id="Gruppe_3" data-name="Gruppe 3" transform="translate(-160.293 412)" style="isolation: isolate">
     <g id="Bildlaufgruppe_3" data-name="Bildlaufgruppe 3" transform="translate(144.593 -447)" clip-path="url(#clip-path)" style="isolation: isolate">
       <rect id="Rechteck_11" data-name="Rechteck 11" width="67" height="34" transform="matrix(0.719, 0.695, -0.695, 0.719, 23.618, 0)" fill="#1d1d1f"/>
     </g>
     <g id="Bildlaufgruppe_2" data-name="Bildlaufgruppe 2" transform="translate(320 -446)" clip-path="url(#clip-path-2)" style="isolation: isolate">
       <rect id="Rechteck_12" data-name="Rechteck 12" width="67" height="34" transform="matrix(0.719, -0.695, 0.695, 0.719, 0, 46.542)" fill="#1d1d1f"/>
     </g>
-    <rect id="Rechteck_10" data-name="Rechteck 10" width="153" height="32" transform="translate(193 -409)" fill="#1d1d1f"/>
+    <rect id="Rechteck_10" data-name="Rechteck 10" width="153" height="35" transform="translate(193 -412)" fill="#1d1d1f"/>
     <g id="NavigationsGruppe" transform="translate(73 -456)">
       <path id="navigation" d="M88,48h0l32,32H272l32-32h0" fill="none" stroke="#fbfbfd" stroke-width="2"/>
     </g>
