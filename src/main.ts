@@ -1,4 +1,7 @@
-import "./styles.css";
+import "./styles/main.scss";
+import "./styles/progressbar.scss";
+import "./styles/card.scss";
+import "./styles/bg.scss";
 
 // make onclick handler for arrowButton
 const arrowButton = document.getElementById("arrowButton");
@@ -11,14 +14,14 @@ arrowButton?.addEventListener("click", () => {
     topNavElement?.classList.toggle("expanded");
 });
 
+const progressBar: HTMLElement | null = document.querySelector(".progress-bar");
 
 // Function to update the progress bar
 function setProgress(progress: number): void {
-    const progressBar: HTMLElement | null = document.querySelector('.progress-bar');
-    if (progressBar) {
-      progressBar.style.width = progress + '%';
-    }
-  }
-  
-  // Example usage: set the progress to 50%
-  setProgress(20);
+    if (!progressBar) return;
+
+    progressBar.style.width = progress + "%";
+}
+
+// Example usage: set the progress to 50%
+setProgress(20);

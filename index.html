@@ -4,15 +4,15 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Vite + TS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>RePerspective</title>
     </head>
     <body>
-        <header>
-            <nav class="posAbsolute topNav" id="topNav">
-                <img class="navPic" src="Bilder/navigation.svg" alt="Logo" />
-                <button class="posAbsolute arrowButton" id="arrowButton">
-                    <img class="arrow posAbsolute" id="arrow" src="Bilder/pfeil.svg" alt="Logo" />
+        <header class="site-header">
+            <nav class="topNav" id="topNav">
+                <img class="navPic" src="Bilder/nav.svg" alt="Logo" />
+                <button class="arrowButton" id="arrowButton">
+                    <img class="arrow" id="arrow" src="Bilder/pfeil.svg" alt="Logo" />
                 </button>
 
                 <div class="navText posAbsolute">
@@ -24,28 +24,32 @@
         <!-- <label for="file">Downloading progress:</label> -->
         <!-- <progress id="progress" value="32" max="100">32%</progress> -->
 
-        <div class="progress-container">
-            <div class="progress">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-        
-        <div class="card-container">
-            <div class="card">
-                <img class="card-img-top" src="Bilder/book.png" alt="Book" />
-                <div class="card-body">
-                    <p class="card-text">Book</p>
+        <main class="main-content">
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar"></div>
                 </div>
             </div>
-        
-        </div>
-        <div class="position-bg">
-            <div class="elliptical-bg"></div>
-        </div>
 
-        <div class="position-bg2">
-            <div class="elliptical-bg"></div>
-        </div>
+            <div class="card-container">
+                <div class="card">
+                    <img class="card-img-top" src="Bilder/book.png" alt="Book" />
+                    <div class="card-body">
+                        <p class="card-text">Book</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="background-style-container">
+                <div class="position-bg">
+                    <div class="elliptical-bg"></div>
+                </div>
+
+                <div class="position-bg2">
+                    <div class="elliptical-bg"></div>
+                </div>
+            </div>
+        </main>
 
         <script type="module" src="/src/main.ts"></script>
     </body>
