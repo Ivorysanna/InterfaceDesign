@@ -105,7 +105,7 @@ body {
 .image-circle-container {
     display: flex;
     justify-content: space-around;
-    padding: 4rem 2rem 0 2rem;
+    padding: 5rem 2rem 0 2rem;
 
     .circle-nav {
         width: 80px;
@@ -130,3 +130,13 @@ body {
         }
     }
 }
+
+.hover-effect {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .hover-effect:hover {
+    transform: scale(1.1);
+  }
+  
