@@ -10,35 +10,9 @@
             </div>
         </div>
 
-        <div class="card-container">
-            <div class="card">
-                <img class="card-img-top" src="Bilder/book.png" alt="Book" />
-                <div class="card-body">
-                    <p class="card-text">Book</p>
-                </div>
-            </div>
-        </div>
+        <SwipeCard />
 
         <VueScrollPicker :options="['10KG', '20KG', '30KG']" />
-
-        <swiper-container
-            :slides-per-view="3"
-            :space-between="spaceBetween"
-            :centered-slides="true"
-            :pagination="{
-                hideOnClick: true,
-            }"
-            :breakpoints="{
-                768: {
-                    slidesPerView: 3,
-                },
-            }"
-            @slidechange="onSlideChange"
-        >
-            <swiper-slide>Slide 1</swiper-slide>
-            <swiper-slide>Slide 2</swiper-slide>
-            <swiper-slide>Slide 3</swiper-slide>
-        </swiper-container>
 
         <div class="background-style-container">
             <div class="position-bg">
@@ -58,14 +32,41 @@
 import { VueScrollPicker } from "vue-scroll-picker";
 
 import TopNav from "./sections/TopNav.vue";
-
-import { register } from "swiper/element/bundle";
-
-register();
-
-const onSlideChange = (e) => {
-    console.log("slide changed");
-};
-
-const spaceBetween = 10;
+import SwipeCard from "./components/SwipeCard.vue";
 </script>
+
+<style lang="scss" scoped>
+.position-bg {
+    position: relative;
+    /* set position in center */
+    left: 140px;
+    top: 20px;
+    transform: translate(-50%, -50%);
+}
+.position-bg2 {
+    position: relative;
+    /* set position in center */
+    left: 390px;
+    top: 170px;
+    transform: translate(-50%, -50%);
+}
+
+.elliptical-bg {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, #0066cc, transparent);
+    filter: blur(140px);
+    z-index: -100;
+}
+
+.background-style-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    overflow: hidden;
+}
+</style>

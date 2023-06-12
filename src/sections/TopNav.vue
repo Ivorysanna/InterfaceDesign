@@ -6,7 +6,7 @@
         </button>
 
         <div class="image-circle-container">
-            <div class="circle-nav selected hover-effect">
+            <!-- <div class="circle-nav selected hover-effect">
                 <img src="Bilder/bookSmall.JPG" />
             </div>
             <div class="circle-nav hover-effect">
@@ -14,13 +14,19 @@
             </div>
             <div class="circle-nav hover-effect">
                 <img src="Bilder/bookSmall.JPG" />
-            </div>
+            </div> -->
+
+            <NavImage img-src="Bilder/bookSmall.JPG" :is-selected="true" />
+            <NavImage img-src="Bilder/bookSmall.JPG" />
+            <NavImage img-src="Bilder/bookSmall.JPG" />
         </div>
     </nav>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+
+import NavImage from "../components/NavImage.vue";
 
 const isNavExpanded = ref(false);
 
@@ -87,37 +93,5 @@ function clickArrowButton() {
     display: flex;
     justify-content: space-around;
     padding: 5rem 2rem 0 2rem;
-
-    .circle-nav {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-
-        border: 5px solid grey;
-
-        &.selected {
-            border: 6px solid #0066cc;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-}
-
-.hover-effect {
-    display: inline-block;
-    transition: transform 0.2s ease-in-out;
-}
-
-.hover-effect:hover {
-    transform: scale(1.1);
 }
 </style>
