@@ -2,6 +2,7 @@
     <div class="scroll-picker-container">
         <VueScrollPicker class="temporal-scroll-picker" :options="['1', '2', '3']" />
         <div class="blue-circle"></div>
+        <img class="hourglass" src="/Bilder/hourglass.svg">
     </div>
 </template>
 
@@ -13,6 +14,9 @@ import { VueScrollPicker } from "vue-scroll-picker";
 
 <style lang="scss">
 .temporal-scroll-picker {
+    // Height of the scroller
+    height: 5em;
+
     .vue-scroll-picker-layer-top {
         background: initial;
         background-color: #1d1d1fd1;
@@ -53,6 +57,13 @@ import { VueScrollPicker } from "vue-scroll-picker";
         height: 55px;
         background-color: #0066cc;
         border-radius: 50%;
+    }
+
+    .hourglass {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -40px;
     }
 }
 </style>

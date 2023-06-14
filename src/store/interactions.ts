@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useInteractionsStore = defineStore("interactions", {
     state: () => ({
-        currentProgress: 10,
+        currentProgress: 0,
     }),
     actions: {
         incrementProgress() {
