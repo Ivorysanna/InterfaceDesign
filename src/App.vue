@@ -12,7 +12,7 @@
 
         <SwipeCard />
 
-        <VueScrollPicker :options="['10KG', '20KG', '30KG']" />
+        <TemporalPicker />
 
         <div class="background-style-container">
             <div class="position-bg">
@@ -26,11 +26,8 @@
     </main>
 </template>
 
-<style src="vue-scroll-picker/lib/style.css"></style>
-
 <script setup lang="ts">
-import { VueScrollPicker } from "vue-scroll-picker";
-
+import TemporalPicker from "./components/TemporalPicker.vue";
 import TopNav from "./sections/TopNav.vue";
 import SwipeCard from "./components/SwipeCard.vue";
 </script>
