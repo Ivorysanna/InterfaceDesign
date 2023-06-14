@@ -37,6 +37,14 @@ function clickArrowButton() {
 </script>
 
 <style lang="scss" scoped>
+.nav-bar-notch {
+    position: absolute;
+    width: 210px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -33px;
+}
+
 .arrowButton {
     position: absolute;
     left: calc(50% - 90px);

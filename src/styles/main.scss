@@ -22,23 +22,9 @@ body {
     height: 100vh;
 }
 
-.nav-bar-notch {
-    position: absolute;
-    width: 210px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -33px;
+@font-face {
+    font-family: "Bambi Handwritten";
+    src: url("@/fonts/BambiHandwritten.ttf");
 }
 
-.main-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
 
-.site-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}

@@ -26,7 +26,7 @@
             </swiper-slide>
         </swiper-container>
         <div class="card-body">
-            <p class="card-text">Book</p>
+            <p class="card-text">langer text damit ich schauen kann</p>
         </div>
     </div>
 </template>
@@ -34,11 +34,16 @@
 <script setup lang="ts">
 // @ts-ignore
 import { register } from "swiper/element/bundle";
+import { Ref, ref } from "vue";
 
 register();
 
+const cardsAlreadyViewed: Ref<number[]> = ref([]);
+
 const onSlideChange = (_e: any) => {
-    console.log("slide changed");
+    const newSlideIndex = _e.detail[0].activeIndex;
+    console.info("new slide", newSlideIndex);
+    cardsAlreadyViewed.value.push(newSlideIndex);
 };
 
 const spaceBetween = 10;
@@ -46,8 +51,9 @@ const spaceBetween = 10;
 
 <style lang="scss" scoped>
 .card-text {
-    font-family: "Lucida Handwriting";
+    font-family: "Bambi Handwritten";
     color: #1d1d1f;
+    font-size: 50px;
 }
 
 .card-body {

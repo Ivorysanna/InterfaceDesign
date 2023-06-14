@@ -28,6 +28,19 @@ import SwipeCard from "./components/SwipeCard.vue";
 </script>
 
 <style lang="scss" scoped>
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.main-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .position-bg {
     position: relative;
     /* set position in center */

@@ -31,7 +31,7 @@ import { VueScrollPicker } from "vue-scroll-picker";
     }
     .vue-scroll-picker-item {
         background: initial;
-        color: #fbfbfd !important; 
+        color: #fbfbfd !important;
     }
 }
 </style>
@@ -45,6 +45,10 @@ import { VueScrollPicker } from "vue-scroll-picker";
 
     .blue-circle {
         position: absolute;
+        z-index: -10;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 55px;
         height: 55px;
         background-color: #0066cc;
