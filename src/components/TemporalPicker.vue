@@ -15,7 +15,7 @@ import { VueScrollPicker } from "vue-scroll-picker";
 <style lang="scss">
 .temporal-scroll-picker {
     // Height of the scroller
-    height: 5em;
+    height: 4em;
 
     .vue-scroll-picker-layer-top {
         background: initial;
@@ -45,7 +45,7 @@ import { VueScrollPicker } from "vue-scroll-picker";
     width: 60px;
     margin: 0 auto;
     position: relative;
-    font-size: 2em;
+    font-size: 2.5em;
 
     .blue-circle {
         position: absolute;
@@ -53,8 +53,8 @@ import { VueScrollPicker } from "vue-scroll-picker";
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 55px;
-        height: 55px;
+        width: 70px;
+        height: 70px;
         background-color: #0066cc;
         border-radius: 50%;
     }
@@ -63,7 +63,7 @@ import { VueScrollPicker } from "vue-scroll-picker";
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        left: -40px;
+        left: -50px;
     }
 }
 </style>
