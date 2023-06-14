@@ -4,14 +4,8 @@
     </header>
 
     <main class="main-content">
-        <div class="progress-container">
-            <div class="progress">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-
+        <ProgressBar style="margin-bottom: 1rem" />
         <SwipeCard />
-
         <TemporalPicker />
 
         <div class="background-style-container">
@@ -27,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import ProgressBar from "./components/ProgressBar.vue";
 import TemporalPicker from "./components/TemporalPicker.vue";
 import TopNav from "./sections/TopNav.vue";
 import SwipeCard from "./components/SwipeCard.vue";

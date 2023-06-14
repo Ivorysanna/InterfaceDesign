@@ -31,7 +31,7 @@ import { VueScrollPicker } from "vue-scroll-picker";
     }
     .vue-scroll-picker-item {
         background: initial;
-        color: #fbfbfd !important;
+        color: #fbfbfd !important; 
     }
 }
 </style>
@@ -41,12 +41,13 @@ import { VueScrollPicker } from "vue-scroll-picker";
     width: 60px;
     margin: 0 auto;
     position: relative;
+    font-size: 2em;
 
     .blue-circle {
         position: absolute;
-        width: 80px;
-        height: 80px;
-        background-color: #0066CC;
+        width: 55px;
+        height: 55px;
+        background-color: #0066cc;
         border-radius: 50%;
     }
 }

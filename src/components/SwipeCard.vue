@@ -1,31 +1,34 @@
 <template>
-    <div class="card-container">
-        <div class="card">
-            <img class="card-img-top" src="/Bilder/book.png" alt="Book" />
-            <div class="card-body">
-                <p class="card-text">Book</p>
-            </div>
+    <div class="card">
+        <swiper-container
+            class="card-img-top"
+            :slides-per-view="1"
+            :space-between="spaceBetween"
+            :centered-slides="true"
+            :pagination="{
+                hideOnClick: true,
+            }"
+            :breakpoints="{
+                768: {
+                    slidesPerView: 3,
+                },
+            }"
+            @slidechange="onSlideChange"
+        >
+            <swiper-slide>
+                <img class="card-img-top" src="/Bilder/book.png" alt="Book" />
+            </swiper-slide>
+            <swiper-slide>
+                <img class="card-img-top" src="/Bilder/book.png" alt="Book" />
+            </swiper-slide>
+            <swiper-slide>
+                <img class="card-img-top" src="/Bilder/book.png" alt="Book" />
+            </swiper-slide>
+        </swiper-container>
+        <div class="card-body">
+            <p class="card-text">Book</p>
         </div>
     </div>
-
-    <swiper-container
-        :slides-per-view="3"
-        :space-between="spaceBetween"
-        :centered-slides="true"
-        :pagination="{
-            hideOnClick: true,
-        }"
-        :breakpoints="{
-            768: {
-                slidesPerView: 3,
-            },
-        }"
-        @slidechange="onSlideChange"
-    >
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-    </swiper-container>
 </template>
 
 <script setup lang="ts">
@@ -57,12 +60,5 @@ const spaceBetween = 10;
     margin: 0;
     float: none;
     margin-bottom: 10px;
-}
-
-.card-container {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 </style>
