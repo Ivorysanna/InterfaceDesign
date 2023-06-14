@@ -1,24 +1,24 @@
 <template>
     <nav class="topNav" id="topNav" :class="{ expanded: isNavExpanded }">
-        <img class="nav-bar-notch" src="Bilder/navBar.svg" alt="Logo" />
+        <img class="nav-bar-notch" src="/Bilder/navBar.svg" alt="Logo" />
         <button class="arrowButton" id="arrowButton" @click.prevent="clickArrowButton">
-            <img class="arrow" id="arrow" src="Bilder/pfeil.svg" alt="Logo" :class="{ rotated: isNavExpanded }" />
+            <img class="arrow" id="arrow" src="/Bilder/pfeil.svg" alt="Logo" :class="{ rotated: isNavExpanded }" />
         </button>
 
         <div class="image-circle-container">
             <!-- <div class="circle-nav selected hover-effect">
-                <img src="Bilder/bookSmall.JPG" />
+                <img src="/Bilder/bookSmall.JPG" />
             </div>
             <div class="circle-nav hover-effect">
-                <img src="Bilder/bookSmall.JPG" />
+                <img src="/Bilder/bookSmall.JPG" />
             </div>
             <div class="circle-nav hover-effect">
-                <img src="Bilder/bookSmall.JPG" />
+                <img src="/Bilder/bookSmall.JPG" />
             </div> -->
 
-            <NavImage img-src="Bilder/bookSmall.JPG" :is-selected="true" />
-            <NavImage img-src="Bilder/bookSmall.JPG" />
-            <NavImage img-src="Bilder/bookSmall.JPG" />
+            <NavImage img-src="/Bilder/bookSmall.JPG" :is-selected="true" />
+            <NavImage img-src="/Bilder/bookSmall.JPG" />
+            <NavImage img-src="/Bilder/bookSmall.JPG" />
         </div>
     </nav>
 </template>

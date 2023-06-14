@@ -5,8 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, withDefaults } from "vue";
-
 export interface Props {
     imgSrc: string;
     isSelected: boolean;

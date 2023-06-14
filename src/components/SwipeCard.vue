@@ -1,7 +1,7 @@
 <template>
     <div class="card-container">
         <div class="card">
-            <img class="card-img-top" src="Bilder/book.png" alt="Book" />
+            <img class="card-img-top" src="/Bilder/book.png" alt="Book" />
             <div class="card-body">
                 <p class="card-text">Book</p>
             </div>
@@ -29,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
 import { register } from "swiper/element/bundle";
 
 register();
