@@ -1,11 +1,9 @@
 <template>
     <div class="card">
-        <swiper-container class="card-img-top" :slides-per-view="1" space-between="10" :centered-slides="true"
-            :pagination="false" @slidechange="onSlideChange">
-            <swiper-slide v-for="(eachCard, eachIndex) in currentTimeLayerCards" class="card-slide"
-                :key="eachCard.imageSrc">
+        <swiper-container ref="swiperContainer" class="card-img-top" :slides-per-view="1" space-between="10"
+            :centered-slides="true" :pagination="false" @slidechange="onSlideChange">
+            <swiper-slide v-for="eachCard in currentTimeLayerCards" class="card-slide" :key="eachCard.imageSrc">
                 <img class="card-img-top" :src="`/InterfaceDesign/${eachCard.imageSrc}`" />
-                <span class="card-debug">ID: {{ eachIndex }}; ZL: {{ interactionsStore.currentTimeLayerIndex }}</span>
             </swiper-slide>
         </swiper-container>
         <div class="card-body">
@@ -17,78 +15,14 @@
 <script setup lang="ts">
 // @ts-ignore
 import { register } from "swiper/element/bundle";
-import { Ref, computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch, Ref } from "vue";
 import { useInteractionsStore } from "@/store/interactions";
+import { CardData } from "@/CardData/CardTypes";
 
 register();
 const interactionsStore = useInteractionsStore();
 
-interface CardData {
-    id: string;
-    imageSrc: string;
-}
-
-interface TimeLayer {
-    cards: CardData[];
-}
-
-interface Composition {
-    timeLayers: TimeLayer[];
-}
-
-const composition: Ref<Composition> = ref({
-    timeLayers: [
-        {
-            cards: [
-                {
-                    // a = Zeit, 01 = Position
-                    id: "a_01",
-                    imageSrc: "/Bilder/song/1song1.JPG",
-                },
-                {
-                    id: "a_02",
-                    imageSrc: "/Bilder/song/2song1.JPG",
-                },
-            ]
-        },
-        {
-            cards: [
-                {
-                    id: "b_01",
-                    imageSrc: "/Bilder/song/1song2.JPG",
-                },
-                {
-                    id: "b_02",
-                    imageSrc: "/Bilder/song/2song2.JPG",
-                },
-            ]
-        },
-    ]
-});
-
-const allCardsAmount = computed(() => {
-    return composition.value.timeLayers.reduce((accumulator, eachTimeLayer) => {
-        return accumulator + eachTimeLayer.cards.length;
-    }, 0);
-})
-
-const currentTimeLayer = computed(() => {
-    return composition.value.timeLayers[interactionsStore.currentTimeLayerIndex - 1];
-})
-
-const currentTimeLayerCards = computed(() => {
-    console.debug("current time layer", currentTimeLayer.value);
-    return currentTimeLayer.value?.cards || [];
-})
-
-function getCardFromTimeLayerWithIndex(timeLayerIndex: number, cardIndex: number): CardData | null {
-    const timeLayer = composition.value.timeLayers[timeLayerIndex - 1];
-    if (!timeLayer) {
-        return null;
-    }
-
-    return timeLayer.cards[cardIndex];
-}
+const swiperContainer: Ref<any> = ref(null);
 
 onMounted(() => {
     const initialCard = getCardFromTimeLayerWithIndex(interactionsStore.currentTimeLayerIndex, lastSelectedSlideIndex.value);
@@ -97,9 +31,28 @@ onMounted(() => {
         return;
     }
     addViewedCardWithId(initialCard.id);
+
+    const swiper = swiperContainer.value?.swiper;
+    if (!swiper) {
+        console.error("no swiper");
+        return;
+    }
+
+    // This is absolutely ugly, I'm sorry
+    const savedViewedCards = new Set(interactionsStore.cardsIdsAlreadyViewed);
+
+    setTimeout(() => {
+        console.debug(swiper);
+        swiper.slideTo(1, 1000, false);
+
+        // after 1 sec
+        setTimeout(() => {
+            swiper.slideTo(0, 1000, false);
+            interactionsStore.cardsIdsAlreadyViewed = savedViewedCards;
+        }, 200);
+    }, 500);
 });
 
-const cardsIdsAlreadyViewed: Ref<Set<string>> = ref(new Set<string>());
 const lastSelectedSlideIndex = ref(0);
 
 const onSlideChange = (_e: any) => {
@@ -119,16 +72,34 @@ const onSlideChange = (_e: any) => {
     addViewedCardWithId(currentCard.id);
 };
 
+const currentTimeLayer = computed(() => {
+    return interactionsStore.currentComposition.timeLayers[interactionsStore.currentTimeLayerIndex - 1];
+})
+
+const currentTimeLayerCards = computed(() => {
+    console.debug("current time layer", currentTimeLayer.value);
+    return currentTimeLayer.value?.cards || [];
+})
+
+function getCardFromTimeLayerWithIndex(timeLayerIndex: number, cardIndex: number): CardData | null {
+    const timeLayer = interactionsStore.currentComposition.timeLayers[timeLayerIndex - 1];
+    if (!timeLayer) {
+        return null;
+    }
+
+    return timeLayer.cards[cardIndex];
+}
+
 function addViewedCardWithId(id: string) {
-    if (cardsIdsAlreadyViewed.value.has(id)) {
+    if (interactionsStore.cardsIdsAlreadyViewed.has(id)) {
         console.debug("already viewed");
         return;
     }
 
-    cardsIdsAlreadyViewed.value.add(id);
-    console.debug("cards already viewed", cardsIdsAlreadyViewed.value);
+    interactionsStore.cardsIdsAlreadyViewed.add(id);
+    console.debug("cards already viewed", interactionsStore.cardsIdsAlreadyViewed);
 
-    if (cardsIdsAlreadyViewed.value.size == allCardsAmount.value) {
+    if (interactionsStore.cardsIdsAlreadyViewed.size == interactionsStore.allCardsAmount) {
         console.debug("all cards viewed");
 
         setTimeout(() => {
@@ -170,16 +141,5 @@ watch(
     margin-bottom: 10px;
     margin-top: 70px;
     height: 60vh;
-}
-
-.card-slide {
-    .card-debug {
-        position: absolute;
-        bottom: 1em;
-        right: 1em;
-        padding: 5px;
-        border-radius: 5px;
-        background-color: #fff;
-    }
 }
 </style>
