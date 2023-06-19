@@ -80,7 +80,7 @@ function clickArrowButton() {
 
 .topNav {
     width: 100%;
-    height: 30vh;
+    height: 27vh;
     z-index: 500;
 
     position: relative;

@@ -86,7 +86,7 @@ onMounted(() => {
     // addViewedCardWithId(composition.value[0].id);
 });
 
-const cardsAlreadyViewed: Ref<Set<number>> = ref(new Set<number>());
+// const cardsAlreadyViewed: Ref<Set<number>> = ref(new Set<number>());
 
 const onSlideChange = (_e: any) => {
     console.debug("slide change", _e);
@@ -104,10 +104,10 @@ const onSlideChange = (_e: any) => {
     // addViewedCardWithId(currentCard.id);
 };
 
-function addViewedCardWithId(id: number) {
-    cardsAlreadyViewed.value.add(id);
-    interactionsStore.incrementProgress();
-}
+// function addViewedCardWithId(id: number) {
+//     cardsAlreadyViewed.value.add(id);
+//     interactionsStore.incrementProgress();
+// }
 </script>
 
 <style lang="scss" scoped>
