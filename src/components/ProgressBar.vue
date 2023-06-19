@@ -18,7 +18,7 @@ const interactionsStore = useInteractionsStore();
 }
 
 .progress {
-    margin-top: 100px;
+    margin-top: 10px;
     width: 80%;
     height: 20px;
     border: 3px solid #fff;

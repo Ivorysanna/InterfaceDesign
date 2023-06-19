@@ -7,7 +7,7 @@
 <script setup lang="ts">
 export interface Props {
     imgSrc: string;
-    isSelected: boolean;
+    isSelected?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {

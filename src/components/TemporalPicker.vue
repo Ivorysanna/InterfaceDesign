@@ -1,6 +1,7 @@
 <template>
     <div class="scroll-picker-container">
-        <VueScrollPicker class="temporal-scroll-picker" :options="['1', '2', '3']" />
+        <VueScrollPicker class="temporal-scroll-picker" :options="['1', '2', '3']"
+            v-model="interactionsStore.currentTimeLayerIndex" />
         <div class="blue-circle"></div>
         <img class="hourglass" src="/Bilder/hourglass.svg">
     </div>
@@ -8,6 +9,17 @@
 
 <script setup lang="ts">
 import { VueScrollPicker } from "vue-scroll-picker";
+import { useInteractionsStore } from "@/store/interactions";
+import { watch } from "vue";
+
+const interactionsStore = useInteractionsStore();
+
+watch(
+    () => interactionsStore.currentTimeLayerIndex,
+    (newValue) => {
+        console.debug(`New time layer selection: ${newValue}`);
+    }
+);
 </script>
 
 <style src="vue-scroll-picker/lib/style.css"></style>
@@ -33,6 +45,7 @@ import { VueScrollPicker } from "vue-scroll-picker";
         background: initial;
         color: #fbfbfd !important;
     }
+
     .vue-scroll-picker-item {
         background: initial;
         color: #fbfbfd !important;

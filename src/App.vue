@@ -4,24 +4,24 @@
     </header>
 
     <main class="main-content">
-        <ProgressBar style="margin-bottom: 1rem" />
         <SwipeCard />
+        <ProgressBar style="margin-bottom: 1rem" />
         <TemporalPicker />
 
         <div class="background-style-container">
-            <div class="position-bg">
+            <!-- <div class="position-bg">
                 <div class="elliptical-bg"></div>
             </div>
 
             <div class="position-bg2">
                 <div class="elliptical-bg"></div>
-            </div>
+            </div> -->
         </div>
     </main>
 </template>
 
 <script setup lang="ts">
-import ProgressBar from "./components/ProgressBar.vue";
+// import ProgressBar from "./components/ProgressBar.vue";
 import TemporalPicker from "./components/TemporalPicker.vue";
 import TopNav from "./sections/TopNav.vue";
 import SwipeCard from "./components/SwipeCard.vue";

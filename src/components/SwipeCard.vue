@@ -1,22 +1,16 @@
 <template>
     <div class="card">
-        <swiper-container
-            class="card-img-top"
-            :slides-per-view="1"
-            space-between="10"
-            :centered-slides="true"
-            :pagination="{
-                hideOnClick: true,
-            }"
-            :breakpoints="{
-                768: {
-                    slidesPerView: 3,
-                },
-            }"
-            @slidechange="onSlideChange"
-        >
-            <swiper-slide v-for="eachCard in cards" :key="eachCard.id">
-                <img class="card-img-top" :src="eachCard.image" />
+        <swiper-container class="card-img-top" :slides-per-view="1" space-between="10" :centered-slides="true" :pagination="{
+            hideOnClick: true,
+        }" :breakpoints="{
+    768: {
+        slidesPerView: 3,
+    },
+}" @slidechange="onSlideChange">
+            <swiper-slide v-for="(eachCard, eachIndex) in currentTimeLayerCards" class="card-slide"
+                :key="eachCard.imageSrc">
+                <img class="card-img-top" :src="eachCard.imageSrc" />
+                <span class="card-debug">ID: {{ eachIndex }}; ZL: {{ interactionsStore.currentTimeLayerIndex }}</span>
             </swiper-slide>
         </swiper-container>
         <div class="card-body">
@@ -28,7 +22,7 @@
 <script setup lang="ts">
 // @ts-ignore
 import { register } from "swiper/element/bundle";
-import { Ref, onMounted, ref } from "vue";
+import { Ref, computed, onMounted, ref } from "vue";
 import { useInteractionsStore } from "@/store/interactions";
 
 register();
@@ -36,36 +30,60 @@ register();
 const interactionsStore = useInteractionsStore();
 
 interface CardData {
-    id: number;
-    timeLayer: number;
-    image: string;
+    imageSrc: string;
 }
 
-const cards: Ref<CardData[]> = ref([
-    {
-        id: 0,
-        timeLayer: 1,
-        image: "/Bilder/book.png",
-    },
-    {
-        id: 1,
-        timeLayer: 1,
-        image: "/Bilder/book.png",
-    },
-    {
-        id: 2,
-        timeLayer: 1,
-        image: "/Bilder/book.png",
-    },
-    {
-        id: 3,
-        timeLayer: 1,
-        image: "/Bilder/book.png",
-    },
-]);
+interface TimeLayer {
+    id: number;
+    cards: CardData[];
+}
+
+interface Composition {
+    timeLayers: TimeLayer[];
+}
+
+const composition: Ref<Composition> = ref({
+    timeLayers: [
+        {
+            id: 1,
+            cards: [
+                {
+                    imageSrc: "/Bilder/book.png",
+                },
+                {
+                    imageSrc: "/Bilder/bookFront.JPG",
+                },
+            ]
+        },
+        {
+            id: 2,
+            cards: [
+                {
+                    imageSrc: "/Bilder/book.png",
+                },
+                {
+                    imageSrc: "/Bilder/bookFront.JPG",
+                },
+            ]
+        },
+    ]
+});
+
+const currentTimeLayer = computed(() => {
+    return getTimeLayerWithId(interactionsStore.currentTimeLayerIndex);
+})
+
+const currentTimeLayerCards = computed(() => {
+    console.debug("current time layer", currentTimeLayer.value);
+    return currentTimeLayer.value?.cards || [];
+})
+
+function getTimeLayerWithId(timeLayerId: number): TimeLayer | null {
+    return composition.value.timeLayers.find((eachTimeLayer) => eachTimeLayer.id == timeLayerId) || null;
+}
 
 onMounted(() => {
-    addViewedCardWithId(cards.value[0].id);
+    // addViewedCardWithId(composition.value[0].id);
 });
 
 const cardsAlreadyViewed: Ref<Set<number>> = ref(new Set<number>());
@@ -75,15 +93,15 @@ const onSlideChange = (_e: any) => {
     const newSlideIndex = _e.detail[0].activeIndex;
     console.info("new slide", newSlideIndex);
 
-    const currentCard = cards.value[newSlideIndex];
-    console.info("current card data", currentCard);
+    // const currentCard = composition.value[newSlideIndex];
+    // console.info("current card data", currentCard);
 
-    if (cardsAlreadyViewed.value.has(currentCard.id)) {
-        console.info("already viewed");
-        return;
-    }
+    // if (cardsAlreadyViewed.value.has(currentCard.id)) {
+    //     console.debug("already viewed");
+    //     return;
+    // }
 
-    addViewedCardWithId(currentCard.id);
+    // addViewedCardWithId(currentCard.id);
 };
 
 function addViewedCardWithId(id: number) {
@@ -110,5 +128,18 @@ function addViewedCardWithId(id: number) {
     margin: 0;
     float: none;
     margin-bottom: 10px;
+    margin-top: 100px;
+    height: 60vh;
+}
+
+.card-slide {
+    .card-debug {
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #fff;
+    }
 }
 </style>
