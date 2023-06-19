@@ -1,15 +1,16 @@
 <template>
     <Teleport to="body">
         <div class="screen-flasher" :class="{ flash: currentlyFlashing }"></div>
-        <button class="debug-button" @click.prevent="flash">FLASH ME</button>
     </Teleport>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import flashAudioFile from "@/assets/audio/flash.wav";
+import { useInteractionsStore } from "@/store/interactions";
 
-// const interval = 2000;
+const interactionsStore = useInteractionsStore();
+
 const currentlyFlashing = ref(false);
 const flashAudio = new Audio(flashAudioFile);
 
@@ -22,6 +23,14 @@ const flash = () => {
     }, 1000);
 };
 
+watch(
+    () => interactionsStore.viewedEverything,
+    (newVal) => {
+        if (newVal == true) {
+            flash();
+        }
+    }
+);
 </script>
 
 <style scoped lang="scss">
@@ -54,12 +63,5 @@ const flash = () => {
     &.flash {
         animation: flash 0.37s linear;
     }
-}
-
-.debug-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 9999999;
 }
 </style>

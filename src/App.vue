@@ -7,8 +7,8 @@
 
     <main class="main-content">
         <SwipeCard />
-        <ProgressBar style="margin-bottom: 1rem" />
-        <TemporalPicker />
+        <!-- <ProgressBar style="margin-bottom: 1rem" /> -->
+        <TemporalPicker style="" />
 
         <div class="background-style-container">
             <!-- <div class="position-bg">

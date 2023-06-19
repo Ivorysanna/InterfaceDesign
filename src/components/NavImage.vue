@@ -1,6 +1,6 @@
 <template>
     <div class="circle-nav hover-effect" :class="{ selected: isSelected }">
-        <img :src="props.src" />
+        <img :src="`/InterfaceDesign/${props.src}`" />
     </div>
 </template>
 

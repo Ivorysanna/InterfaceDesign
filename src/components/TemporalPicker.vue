@@ -27,7 +27,7 @@ watch(
 <style lang="scss">
 .temporal-scroll-picker {
     // Height of the scroller
-    height: 4em;
+    height: 2.5em;
 
     .vue-scroll-picker-layer-top {
         background: initial;
@@ -49,6 +49,7 @@ watch(
     .vue-scroll-picker-item {
         background: initial;
         color: #fbfbfd !important;
+        line-height: 1.4em;
     }
 }
 </style>
