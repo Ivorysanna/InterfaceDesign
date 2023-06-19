@@ -7,17 +7,19 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import flashAudioFile from "@/assets/audio/flash.wav";
 
 // const interval = 2000;
 const currentlyFlashing = ref(false);
-const flashAudio = new Audio("/assets/audio/flash.mp3");
+const flashAudio = new Audio(flashAudioFile);
 
 // flash the screen
 const flash = () => {
     currentlyFlashing.value = true;
+    flashAudio.play();
     setTimeout(() => {
         currentlyFlashing.value = false;
-    }, 500);
+    }, 1000);
 };
 
 </script>
@@ -28,7 +30,7 @@ const flash = () => {
         opacity: 0;
     }
 
-    50% {
+    20% {
         opacity: 1;
     }
 
@@ -50,7 +52,7 @@ const flash = () => {
     opacity: 0;
 
     &.flash {
-        animation: flash 0.27s ease-out;
+        animation: flash 0.37s linear;
     }
 }
 
