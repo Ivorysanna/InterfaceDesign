@@ -1,4 +1,6 @@
 <template>
+    <ScreenFlasher />
+
     <header class="site-header">
         <TopNav />
     </header>
@@ -25,6 +27,7 @@
 import TemporalPicker from "./components/TemporalPicker.vue";
 import TopNav from "./sections/TopNav.vue";
 import SwipeCard from "./components/SwipeCard.vue";
+import ScreenFlasher from "./components/ScreenFlasher.vue";
 </script>
 
 <style lang="scss" scoped>
