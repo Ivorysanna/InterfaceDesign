@@ -16,9 +16,9 @@
                 <img src="/Bilder/bookSmall.JPG" />
             </div> -->
 
-            <NavImage img-src="/Bilder/bookSmall.JPG" :is-selected="true" />
-            <NavImage img-src="/Bilder/bookSmall.JPG" />
-            <NavImage img-src="/Bilder/bookSmall.JPG" />
+            <NavImage src="/Bilder/bookSmall.JPG" :is-selected="true" />
+            <NavImage src="/Bilder/bookSmall.JPG" />
+            <NavImage src="/Bilder/bookSmall.JPG" />
         </div>
     </nav>
 </template>

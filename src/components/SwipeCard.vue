@@ -128,7 +128,7 @@ const onSlideChange = (_e: any) => {
     margin: 0;
     float: none;
     margin-bottom: 10px;
-    margin-top: 100px;
+    margin-top: 70px;
     height: 60vh;
 }
 

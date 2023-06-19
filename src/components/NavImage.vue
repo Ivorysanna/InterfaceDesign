@@ -1,12 +1,12 @@
 <template>
     <div class="circle-nav hover-effect" :class="{ selected: isSelected }">
-        <img :src="props.imgSrc" />
+        <img :src="props.src" />
     </div>
 </template>
 
 <script setup lang="ts">
 export interface Props {
-    imgSrc: string;
+    src: string;
     isSelected?: boolean;
 }
 
