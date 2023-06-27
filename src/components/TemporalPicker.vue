@@ -3,7 +3,7 @@
         <VueScrollPicker class="temporal-scroll-picker" :options="interactionsStore.selectableTimeLayers"
             v-model="interactionsStore.currentTimeLayerIndex" />
         <div class="blue-circle"></div>
-        <img class="hourglass" src="/Bilder/hourglass.svg">
+        <!-- <img class="hourglass" src="/Bilder/hourglass.svg"> -->
     </div>
 </template>
 
